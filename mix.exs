@@ -14,7 +14,10 @@ defmodule Stack.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      env: [initial_stash: [1, 2, 3] ],
+      mod: { Stack, []},
+      registered: [Stack.Stash, Stack.Api],
     ]
   end
 

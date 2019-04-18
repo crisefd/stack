@@ -2,10 +2,10 @@ defmodule Stack.Server do
   use GenServer
   alias Stack.Impl
 
-  def init(initial_stack), do: {:ok, initial_stack}
+  def init(_), do: {:ok, Stack.Stash.get() }
 
-  def terminate() do
-
+  def terminate(_reason, current_stack) do
+    Stack.Stash.update current_stack
   end
 
   def handle_call(:pop, _from, stack) do

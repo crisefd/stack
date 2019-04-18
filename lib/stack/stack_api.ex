@@ -1,9 +1,14 @@
-defmodule Stack do
+defmodule Stack.Api do
+  use GenServer # Seems hacky to put this here
  @server Stack.Server
 
  def start_link(init_stack) do
    GenServer.start_link(@server, init_stack, name: @server)
  end
+
+ def init(_) do
+  GenServer.call @server, :init
+end
 
  def pop() do
   GenServer.call @server, :pop
