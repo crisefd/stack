@@ -1,6 +1,6 @@
 # Stack
 
-**TODO: Add description**
+**Stack implementation built in OTP**
 
 ## Installation
 
